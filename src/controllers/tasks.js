@@ -28,10 +28,11 @@ const getTask = async (req, res) => {
     const { id: ProductId } = req.params
     try {
         const GetProduct = await Product.findOne({ _id: ProductId })
-        res.status(201).json(GetProduct)
+
+        res.status(200).json(GetProduct)
         console.log(ProductId);
     } catch (error) {
-        res.status(400).json({ error: error.message });
+        res.status(500).json({ msg: "No Item With id " + ProductId });
     }
 
 }
@@ -51,10 +52,9 @@ const deleteTask = async (req, res) => {
     try {
         await Product.findOneAndDelete({ _id: ProductId })
         res.status(201).json("item deleted")
-
         console.log("item Deleted");
     } catch (error) {
-        console.log("item not Deleted");
+
         res.status(400).json({ error: error.message });
     }
 }
