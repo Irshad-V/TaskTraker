@@ -1,42 +1,62 @@
 const Product = require('../db/schema')
 
-const getAllTasks = (req, res) => {
-
-
+const getAllTasks = async (req, res) => {
 
     Product.find({}).then(users => {
-       
         res.json(users)
     }).catch(err => {
         console.error(err);
     });
 
-   
+
 
 }
-const createTask = (req, res) => {
-    res.json(req.body)
+const createTask = async (req, res) => {
 
-    const newProduct = new Product({
-        name: req.body.name,
-        price: req.body.price,
-        category: req.body.categor,
-        stock: req.body.stock
-    })
-    newProduct.save()
-        .then(saveProdcut => console.log('Product saved:', saveProdcut))
-        .catch(err => console.log('Product savng err:', err))
+    try {
+        const newProduct = await Product.create(req.body);
+        res.status(201).json(newProduct);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+
+
 }
 
 
-const getTask = (req, res) => {
-    res.json({ id: req.params.id })
+const getTask = async (req, res) => {
+    const { id: ProductId } = req.params
+    try {
+        const GetProduct = await Product.findOne({ _id: ProductId })
+        res.status(201).json(GetProduct)
+        console.log(ProductId);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+
 }
-const updateTask = (req, res) => {
-    res.send('update Items')
+const updateTask = async (req, res) => {
+    const { id: ProductId } = req.params
+    try {
+        const GetUpdateProduct = await Product.updateOne({ _id: ProductId }, req.body)
+        res.status(201).json(GetUpdateProduct)
+        console.log(GetUpdateProduct);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+
 }
-const deleteTask = (req, res) => {
-    res.send('delete Items')
+const deleteTask = async (req, res) => {
+    const { id: ProductId } = req.params
+    try {
+        await Product.findOneAndDelete({ _id: ProductId })
+        res.status(201).json("item deleted")
+
+        console.log("item Deleted");
+    } catch (error) {
+        console.log("item not Deleted");
+        res.status(400).json({ error: error.message });
+    }
 }
 
 

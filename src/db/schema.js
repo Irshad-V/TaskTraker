@@ -2,10 +2,18 @@ const mongoose = require("mongoose")
 
 const productSchema = new mongoose.Schema(
     {
-        name: String,
-        price: Number,
-        category: String,
-        stock: Number
+        name:
+        {
+            type: String,
+            required: [true, 'Must Provide Name'],
+            maxlength: [20, 'name can not be more than 20 characters']
+        },
+        completed:
+        {
+            type: Boolean,
+            default: false
+
+        }
     }
 )
 
