@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./main.css">
+  <title>Edit Task</title>
+</head>
+<body>
+  <div class="wrapper">
+    <form class="form-single-task">
+      <h4>Edit Task</h4>
+      <div class="control-form">
+        <label>Task ID:</label>
+        <p class="task-edit-id"></p> <!-- Placeholder for Task ID -->
+      </div>
+      <div class="control-form">
+        <label for="name">Name:</label>
+        <input type="text" name="name" class="name-task-edit"> <!-- Input field for Task Name -->
+      </div>
+      <div class="control-form">
+        <label for="completed">Completed:</label>
+        <input type="checkbox" name="completed" class="completed-task-edit"> <!-- Checkbox for Task Completion -->
+      </div>
+      <button type="submit" class="button block task-edit-btn">Edit</button> <!-- Edit Button -->
+      <div class="form-alert"></div> <!-- Alert message area -->
+    </form>
+    <a href="index.html" class="button link-back">Back to Tasks</a> <!-- Link to go back to Tasks -->
+  </div>
+
+  <!-- External Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+          integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"></script>
+  <script src="./task.js"></script> <!-- Your custom JavaScript file -->
+</body>
+</html>

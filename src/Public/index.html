@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+
+   
+    <link rel="stylesheet" href="./main.css" />
+    <title>Task Tracker</title>
+</head>
+
+<body>
+    <form class="form-task">
+        <h4>Task Tracker</h4>
+        <div class="control-form">
+            <input type="text" name="name" class="input-task" placeholder="e.g. Plan Trip" />
+            <button type="submit" class="button submit-button">Submit</button>
+        </div>
+        <div class="alert-form"></div>
+    </form>
+    <section class="container-tasks">
+        <p class="loading-message">Loading......</p>
+        <div class="tasks-list"></div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./Browser.js"></script>
+</body>
+
+</html>
