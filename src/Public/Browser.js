@@ -21,8 +21,6 @@ const showAlert = (text, action) => {
     }, 3000);
 };
 
-
-
 const getTasks = async () => {
     loadingMessageDOM.style.display = 'block';
     try {

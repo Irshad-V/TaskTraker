@@ -5,8 +5,8 @@ const tasks = require('./src/routes/tasks')
 const connectDb = require('./src/db/connection')
 const Product = require('./src/db/schema')
 const cors = require('cors');
-const uri = process.env.DATABASE_URL; 
-
+const uri = process.env.DATABASE_URL;
+const path = require("path")
 
 const port = 8000
 
@@ -14,6 +14,14 @@ const port = 8000
 app.use(express.json())
 app.use(cors());
 app.use('/api/v1/tasks', tasks)
+
+app.use(express.static(path.join(__dirname, 'src', 'public')));
+
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'src', 'public', 'index.html'));
+});
+
 
 const Start = async () => {
     try {
