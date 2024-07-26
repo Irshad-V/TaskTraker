@@ -5,7 +5,7 @@ const editFormDOM = document.querySelector('.form-single-task');
 const editBtnDOM = document.querySelector('.task-edit-btn');
 const formAlertDOM = document.querySelector('.form-alert');
 const params = new URLSearchParams(window.location.search);
-const url = 'http://localhost:8000/api/v1/tasks';
+const url = 'https://tasktraker-1.onrender.com/api/v1/tasks';
 
 const id = params.get('id');
 let tempName;
