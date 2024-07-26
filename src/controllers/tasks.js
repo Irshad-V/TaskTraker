@@ -23,7 +23,6 @@ const createTask = async (req, res) => {
 
 }
 
-
 const getTask = async (req, res) => {
     const { id: ProductId } = req.params
     try {

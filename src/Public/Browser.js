@@ -20,7 +20,7 @@ const showAlert = (text, action) => {
         alertFormDOM.classList.remove(action);
     }, 3000);
 };
-console.log("tasks111");
+
 
 
 const getTasks = async () => {
