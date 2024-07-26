@@ -6,8 +6,7 @@ const connectDb = require('./src/db/connection')
 const Product = require('./src/db/schema')
 const cors = require('cors');
 const uri = process.env.DATABASE_URL;
-const path = require("path")
-
+const path = require('path');
 const port = 8000
 
 // middlewares
